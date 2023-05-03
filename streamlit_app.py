@@ -3,7 +3,7 @@ import altair as alt
 import math
 import pandas as pd
 import streamlit as st
-
+from streamlit_observable import observable
 """
 # Welcome to Streamlit! intcent
 
@@ -41,7 +41,7 @@ with st.echo(code_location='below'):
 # Welcome to Streamlit! intcent
     
 
-    from streamlit_observable import observable
+    
 
     a = st.slider("Alex", value=30)
     b = st.slider("Brian", value=20)
@@ -60,3 +60,20 @@ with st.echo(code_location='below'):
         hide=["draw"]
     )
 """
+with st.echo(code_location='below'):
+    a = st.slider("Alex", value=30)
+    b = st.slider("Brian", value=20)
+    c = st.slider("Craig", value=50)
+    
+    observable("Example Updatable Bar Chart", 
+        notebook="@juba/updatable-bar-chart", 
+        targets=["chart", "draw"], 
+        redefine={
+            "data": [
+                {"name": "Alex", "value": a},
+                {"name": "Brian", "value": b},
+                {"name": "Craig", "value": c}
+            ],
+        },
+        hide=["draw"]
+    )
