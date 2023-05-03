@@ -44,8 +44,8 @@ a = st.slider("Alex", value=30)
 b = st.slider("Brian", value=20)
 c = st.slider("Craig", value=50)
 
-observable("Example Updatable Bar Chart",
-           notebook="@juba/updatable-bar-chart",
+observable("barplot",
+           notebook="@intCenter",
            targets=["chart", "draw"],
            redefine={"data": [
                {"name": "Alex", "value": 30},
