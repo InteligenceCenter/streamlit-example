@@ -15,7 +15,7 @@ forums](https://discuss.streamlit.io).
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
 
-"""
+
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
@@ -36,7 +36,7 @@ with st.echo(code_location='below'):
     st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
- """
+
 
 from streamlit_observable import observable
 with st.echo(code_location='below'):
@@ -48,7 +48,7 @@ with st.echo(code_location='below'):
            notebook="@juba/updatable-bar-chart",
            targets=["chart", "draw"],
            redefine={"data": [
-               {"name": "Alex", "value": a},
-               {"name": "Brian", "value": b},
-               {"name": "Craig", "value": c}
+               {"name": "Alex", value= a},
+               {"name": "Brian", value= b},
+               {"name": "Craig", value= c}
            ],},hide=["draw"])
