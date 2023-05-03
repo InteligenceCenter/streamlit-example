@@ -48,7 +48,7 @@ with st.echo(code_location='below'):
            notebook="@juba/updatable-bar-chart",
            targets=["chart", "draw"],
            redefine={"data": [
-               {"name": "Alex", value= 30},
-               {"name": "Brian", value=40},
-               {"name": "Craig", value= 50}
+               {"name": "Alex", "value": 30},
+               {"name": "Brian", "value": 40},
+               {"name": "Craig", "value":  50}
            ],},hide=["draw"])
