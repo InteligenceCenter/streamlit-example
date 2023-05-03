@@ -37,7 +37,7 @@ with st.echo(code_location='below'):
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
     
-pip install streamlit-observable
+!pip install streamlit-observable
 from streamlit_observable import observable
 
 a = st.slider("Alex", value=30)
