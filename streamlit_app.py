@@ -37,30 +37,7 @@ with st.echo(code_location='below'):
         .mark_circle(color='#0068c9', opacity=0.5)
         .encode(x='x:Q', y='y:Q'))
 
-"""
-# Welcome to Streamlit! intcent
-    
 
-    
-
-    a = st.slider("Alex", value=30)
-    b = st.slider("Brian", value=20)
-    c = st.slider("Craig", value=50)
-
-    observable("Example Updatable Bar Chart", 
-        notebook="@juba/updatable-bar-chart", 
-        targets=["chart", "draw"], 
-        redefine={
-            "data": [
-                {"name": "Alex", "value": a},
-                {"name": "Brian", "value": b},
-                {"name": "Craig", "value": c}
-            ],
-        },
-        hide=["draw"]
-    )
-"""
-with st.echo(code_location='below'):
     a = st.slider("Alex", value=30)
     b = st.slider("Brian", value=20)
     c = st.slider("Craig", value=50)
