@@ -44,15 +44,22 @@ a = st.slider("Alex", value=30)
 b = st.slider("Brian", value=20)
 c = st.slider("Craig", value=50)
 
-observable("barplot",
-           notebook="@juba/updatable-bar-chart",
-           targets=["chart", "draw"],
-           redefine={"data": [
-               {"name": "Alex", "value": 30},
-               {"name": "Brian", "value": 20},
-               {"name": "Craig", "value": 50}
-           ],
-                    },
-           hide=["draw"]
-          )
+import streamlit as st
+from streamlit_observable import observable
 
+a = st.slider("Alex", value=30)
+b = st.slider("Brian", value=20)
+c = st.slider("Craig", value=50)
+
+observable("Example Updatable Bar Chart", 
+    notebook="@juba/updatable-bar-chart", 
+    targets=["chart", "draw"], 
+    redefine={
+        "data": [
+            {"name": "Alex", "value": 10},
+            {"name": "Brian", "value": 20},
+            {"name": "Craig", "value": 40}
+        ],
+    },
+    hide=["draw"]
+)
