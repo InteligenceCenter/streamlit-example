@@ -38,17 +38,19 @@ with st.echo(code_location='below'):
         .encode(x='x:Q', y='y:Q'))
 
 
-from streamlit_observable import observable
-with st.echo(code_location='below'):
-    a = st.slider("Alex", value=30)
-    b = st.slider("Brian", value=20)
-    c = st.slider("Craig", value=50)
+import observable
 
-    observable("Example Updatable Bar Chart",
-           notebook="@juba/updatable-bar-chart",
-           targets=["chart", "draw"],
-           redefine={"data": [
-               {"name": "Alex", "value": 30},
-               {"name": "Brian", "value": 40},
-               {"name": "Craig", "value":  50}
-           ],},hide=["draw"])
+@st.cache
+def get_trader_joes():
+    # a lot of code...
+    return df
+
+df = get_trader_joes()
+
+observable("Trader Joes Voronoi Map", 
+    notebook="@mbostock/u-s-voronoi-map-o-matic", 
+    targets=["map"],
+    redefine={
+        "data": df[["longitude", "latitude", "name"]].to_dict(orient="records")
+    }
+)
