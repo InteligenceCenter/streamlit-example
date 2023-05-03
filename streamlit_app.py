@@ -39,14 +39,6 @@ with st.echo(code_location='below'):
  """
 
 from streamlit_observable import observable
-
-a = st.slider("Alex", value=30)
-b = st.slider("Brian", value=20)
-c = st.slider("Craig", value=50)
-
-import streamlit as st
-from streamlit_observable import observable
-
 a = st.slider("Alex", value=30)
 b = st.slider("Brian", value=20)
 c = st.slider("Craig", value=50)
