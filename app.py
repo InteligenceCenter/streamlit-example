@@ -4,26 +4,21 @@ import numpy as np
 import pydeck as pdk
 import plotly.express as px
 
-# DATA_URL = (
-# "dionysisk.eu/raTest/Motor_Vehicle_Collisions_-_Crashes.csv"
-# # "/home/rhyme/Desktop/Project/Motor_Vehicle_Collisions_-_Crashes.csv"
-# )
-url="dionysisk.eu/raTest/Motor_Vehicle_Collisions_-_Crashes.csv"
-s=requests.get(url).content
-c=pd.read_csv(io.StringIO(s.decode('utf-8')))
-
-# uploaded_file = st.file_uploader("Choose a file")
-# if uploaded_file is not None:
-#   DATA_URL = pd.read_csv(uploaded_file)
-#   DATA_URL = DATA_URL.sample(n=300000)
-#   st.write(DATA_URL)
+DATA_URL = (
+"/home/rhyme/Desktop/Project/Motor_Vehicle_Collisions_-_Crashes.csv"
+)
+uploaded_file = st.file_uploader("Choose a file")
+if uploaded_file is not None:
+  DATA_URL = pd.read_csv(uploaded_file)
+  DATA_URL = DATA_URL.sample(n=300000)
+  st.write(DATA_URL)
 
 st.title("Road Accident in France_2")
 st.markdown("This application is a Streamlit dashboard that can be use to analyze road accident in France🗼🥐🇫🇷🥖🚗💥🚙")
 
 @st.cache(persist=True)
 def load_data(nrows):
-    data = pd.read_csv(io.StringIO(s.decode('utf-8')),nrows=nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
+    data = pd.read_csv(DATA_URL,nrows=nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
     data.dropna(subset=['LATITUDE', 'LONGITUDE'], inplace=True)
     lowercase = lambda x: str(x).lower()
     data.rename(lowercase, axis='columns', inplace=True)
