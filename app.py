@@ -4,9 +4,9 @@ import numpy as np
 import pydeck as pdk
 import plotly.express as px
 
-DATA_URL = (
-"https://dionysisk.eu/raTest/Motor_Vehicle_Collisions_-_Crashes.csv"
-)
+# DATA_URL = (
+# "https://dionysisk.eu/raTest/Motor_Vehicle_Collisions_-_Crashes.csv"
+# )
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
   DATA_URL = pd.read_csv(uploaded_file)
@@ -17,18 +17,20 @@ st.title("Road Accident in France_2")
 st.markdown("This application is a Streamlit dashboard that can be use to analyze road accident in France🗼🥐🇫🇷🥖🚗💥🚙")
 
 @st.cache(persist=True)
-def load_data(nrows):
-#     data = pd.read_csv(DATA_URL,nrows=nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
-    data = DATA_URL
-    data.dropna(subset=['LATITUDE', 'LONGITUDE'], inplace=True)
-    lowercase = lambda x: str(x).lower()
-    data.rename(lowercase, axis='columns', inplace=True)
-    data.rename(columns={'crash_date_crash_time': 'date/time'}, inplace=True)
-    return data
+# def load_data(nrows):
+# #     data = pd.read_csv(DATA_URL,nrows=nrows, parse_dates=[['CRASH_DATE', 'CRASH_TIME']])
+#     data = DATA_URL
+#     data.dropna(subset=['LATITUDE', 'LONGITUDE'], inplace=True)
+#     lowercase = lambda x: str(x).lower()
+#     data.rename(lowercase, axis='columns', inplace=True)
+#     data.rename(columns={'crash_date_crash_time': 'date/time'}, inplace=True)
+#     return data
 
 
-data = load_data(100000)
-original_data = data
+# data = load_data(100000)
+# original_data = data
+
+original_data = DATA_URL
 
 st.header("Where are the most people injured in France?")
 injured_people = st.slider("Number of person injured in road accident",0, 19)
