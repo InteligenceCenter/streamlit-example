@@ -30,7 +30,7 @@ st.markdown("This application is a Streamlit dashboard that can be use to analyz
 # data = load_data(100000)
 # original_data = data
 
-original_data = DATA_URL
+data = DATA_URL
 
 st.header("Where are the most people injured in France?")
 injured_people = st.slider("Number of person injured in road accident",0, 19)
@@ -77,6 +77,8 @@ st.write(fig)
 
 st.header("Top 5 dangerous city by injury type")
 select = st.selectbox('Injured people', ['Pedestrian','Cyclists','Motorists'])
+
+original_data = DATA_URL
 
 if select == 'Pedestrians':
     st.write(original_data.query("injured_pedestrians >= 1") [["on_street_name","injured_pedestrians"]].sort_values(by=['injured_pedestrians'], ascending=False).dropna(how='any')[:5])
