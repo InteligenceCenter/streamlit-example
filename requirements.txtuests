@@ -1,8 +1,5 @@
-altair
 pandas
 streamlit
 plotly
 numpy
 pydeck
-io
-requests
