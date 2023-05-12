@@ -4,14 +4,15 @@ import numpy as np
 import pydeck as pdk
 import plotly.express as px
 
-# DATA_URL = (
+DATA_URL = (
+"https://dionysisk.eu/raTest/Motor_Vehicle_Collisions_-_Crashes.csv"
 # "/home/rhyme/Desktop/Project/Motor_Vehicle_Collisions_-_Crashes.csv"
-# )
-uploaded_file = st.file_uploader("Choose a file")
-if uploaded_file is not None:
-  DATA_URL = pd.read_csv(uploaded_file)
-  DATA_URL = DATA_URL.sample(n=300000)
-  st.write(DATA_URL)
+)
+# uploaded_file = st.file_uploader("Choose a file")
+# if uploaded_file is not None:
+#   DATA_URL = pd.read_csv(uploaded_file)
+#   DATA_URL = DATA_URL.sample(n=300000)
+#   st.write(DATA_URL)
 
 st.title("Road Accident in France")
 st.markdown("This application is a Streamlit dashboard that can be use to analyze road accident in France🗼🥐🇫🇷🥖🚗💥🚙")
